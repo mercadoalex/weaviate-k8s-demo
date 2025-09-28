@@ -31,16 +31,16 @@ spec:
               value: "0.0.0.0"  # Host for Weaviate to bind to
             - name: WEAVIATE_PORT
               value: "8080"  # Port for Weaviate
-            - name: WEAVIATE_DB
-              value: "weaviate"  # Database name for Weaviate
-            - name: WEAVIATE_DB_URL
-              value: "http://weaviate-db:5432"  # Database connection URL
+            - name: WEAVIATE_DB_TYPE
+              value: "sqlite"  # Use SQLite as the backend
+            - name: WEAVIATE_DB_PATH
+              value: "/data/weaviate.db"  # Path to the SQLite DB file
       # Optionally, add volume mounts if needed for persistent storage
       # volumes:
       #   - name: weaviate-storage
       #     persistentVolumeClaim:
       #       claimName: weaviate-pvc  # Reference to a PVC for storage
       # volumeMounts:
-      #   - mountPath: /var/lib/weaviate
+      #   - mountPath: /data
       #     name: weaviate-storage  # Mount the volume to the container
       # Add any additional configurations or environment variables as needed
