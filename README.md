@@ -59,3 +59,5 @@ Once deployed, you can interact with Weaviate through the exposed service. Refer
 For more details on each manifest file, please refer to the `manifests/README.md` file. This file contains specific instructions on how to modify and apply the individual Kubernetes manifests.
 
 Feel free to contribute to this project by submitting issues or pull requests. Happy learning!
+
+> 📖 **Read more:** Check out our detailed article on [Medium](https://medium.com/dummy-link-to-weaviate-k8s-article) for step-by-step explanations and practical tips.
