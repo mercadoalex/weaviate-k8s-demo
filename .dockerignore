@@ -1,0 +1,30 @@
+# This file specifies files and directories that should be ignored by Docker when building images.
+# It helps to keep the Docker context clean and reduces build time.
+
+# Ignore the Kubernetes manifests directory
+manifests/
+
+# Ignore the scripts directory
+scripts/
+
+# Ignore any local configuration files
+*.env
+
+# Ignore any log files
+*.log
+
+# Ignore the README files
+README.md
+
+# Ignore version control directories
+.git/
+.gitignore
+
+# Ignore Docker-related files
+Dockerfile
+docker-compose.yml
+
+# Ignore any temporary files
+*.tmp
+*.swp
+*.bak

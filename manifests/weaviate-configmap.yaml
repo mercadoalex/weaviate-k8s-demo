@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: weaviate-config
+  namespace: default  # Specify the namespace where the ConfigMap will be created
+data:
+  WEAVIATE_HOST: "weaviate"  # Hostname for Weaviate service
+  WEAVIATE_PORT: "8080"  # Port on which Weaviate listens
+  WEAVIATE_DB_TYPE: "sqlite"  # Type of database to use (e.g., sqlite, postgresql)
+  WEAVIATE_DB_PATH: "/data/weaviate.db"  # Path to the database file
+  WEAVIATE_AUTHENTICATION: "false"  # Set to true if authentication is required
+  WEAVIATE_ENABLE_MODULES: "text2vec-contextionary"  # Enable specific modules for Weaviate
+  WEAVIATE_LOG_LEVEL: "info"  # Log level for Weaviate (e.g., debug, info, warn, error)

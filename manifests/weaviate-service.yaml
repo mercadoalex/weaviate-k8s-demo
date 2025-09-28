@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: weaviate
+  namespace: default  # Specify the namespace where the service will be created
+spec:
+  type: ClusterIP  # This type exposes the service on a cluster-internal IP
+  ports:
+    - port: 8080  # The port that the service will expose
+      targetPort: 8080  # The port on the Weaviate pods that the service will forward traffic to
+      protocol: TCP  # The protocol used for the service
+  selector:
+    app: weaviate  # This selector matches the pods managed by the Weaviate deployment
+  # The selector ensures that traffic sent to this service is routed to the correct pods
+  # based on the labels defined in the deployment manifest.

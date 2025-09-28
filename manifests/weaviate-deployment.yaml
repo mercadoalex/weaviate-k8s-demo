@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weaviate
+  labels:
+    app: weaviate
+spec:
+  replicas: 1  # Number of Weaviate pods to run
+  selector:
+    matchLabels:
+      app: weaviate
+  template:
+    metadata:
+      labels:
+        app: weaviate
+    spec:
+      containers:
+        - name: weaviate
+          image: semitechnologies/weaviate:latest  # Weaviate container image
+          ports:
+            - containerPort: 8080  # Port on which Weaviate listens
+          resources:
+            requests:
+              memory: "512Mi"  # Minimum memory request
+              cpu: "500m"  # Minimum CPU request
+            limits:
+              memory: "1Gi"  # Maximum memory limit
+              cpu: "1"  # Maximum CPU limit
+          env:
+            - name: WEAVIATE_HOST
+              value: "0.0.0.0"  # Host for Weaviate to bind to
+            - name: WEAVIATE_PORT
+              value: "8080"  # Port for Weaviate
+            - name: WEAVIATE_DB
+              value: "weaviate"  # Database name for Weaviate
+            - name: WEAVIATE_DB_URL
+              value: "http://weaviate-db:5432"  # Database connection URL
+      # Optionally, add volume mounts if needed for persistent storage
+      # volumes:
+      #   - name: weaviate-storage
+      #     persistentVolumeClaim:
+      #       claimName: weaviate-pvc  # Reference to a PVC for storage
+      # volumeMounts:
+      #   - mountPath: /var/lib/weaviate
+      #     name: weaviate-storage  # Mount the volume to the container
+      # Add any additional configurations or environment variables as needed
